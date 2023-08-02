@@ -16,15 +16,21 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-    //TODO: task can be created
     @PostMapping
     public ResponseEntity<Void>createNewTask(@RequestBody CreateNewTaskCommand createNewTaskCommand) {
         taskService.createNewTask(createNewTaskCommand);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    //TODO: tasks can be listed
+
+
+
+
+
+
+
 
     //TODO: task can be updated by ID
     //TODO: task can be Deleted by ID
-    //TODO: tasks can be listed
 }

@@ -2,11 +2,16 @@ package hu.holnor.mvctodo.service;
 
 import hu.holnor.mvctodo.domain.User;
 import hu.holnor.mvctodo.dto.incomming.RegisterUserCommand;
-import hu.holnor.mvctodo.dto.outgoing.FindUserByIdData;
+import hu.holnor.mvctodo.dto.outgoing.FindUserByIdDetails;
+import hu.holnor.mvctodo.dto.outgoing.UserListDetails;
 import hu.holnor.mvctodo.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -22,9 +27,13 @@ public class UserService {
         this.userRepository.save(new User(registerUserCommand));
     }
 
-    public FindUserByIdData findUserById(Long id) {
-        return new FindUserByIdData(
+    public FindUserByIdDetails findUserById(Long id) {
+        return new FindUserByIdDetails(
                 this.userRepository.findById(id).orElseThrow(EntityNotFoundException::new)
         );
+    }
+
+    public UserListDetails findAllUsers() {
+        //TODO: implement
     }
 }

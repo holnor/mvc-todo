@@ -5,22 +5,22 @@ import hu.holnor.mvctodo.domain.User;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
-public class FindUserByIdData {
+public class UserListDetails {
     private String firstName;
     private String lastName;
     private String email;
-    private List<String> tasks;
+    private Integer numberOfTasks;
+    private Integer totalComplexity;
 
-    public FindUserByIdData(User user) {
+    public UserListDetails(User user) {
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.email = user.getEmail();
-        this.tasks = user.getTasks().stream()
-                .map(Task::getName).collect(Collectors.toList());
+        this.numberOfTasks = user.getTasks().size();
+        this.totalComplexity = user.getTasks().stream()
+                .mapToInt(Task::getComplexity).sum();
     }
 }
