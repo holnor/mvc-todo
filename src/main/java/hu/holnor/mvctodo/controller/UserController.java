@@ -1,11 +1,10 @@
 package hu.holnor.mvctodo.controller;
 
+import hu.holnor.mvctodo.dto.outgoing.FindUserByIdData;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/users")
@@ -17,21 +16,25 @@ public class UserController {
         this.userService = userService;
     }
 
-    //TODO: create user
     @PostMapping
     public ResponseEntity<Void>registerUser(@RequestBody RegisterUserCommand registerUserCommand){
         this.userService.registerUser(registerUserCommand);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-
+    //TODO: find user by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<FindUserByIdData>findUserById(@PathVariable Long id){
+        return new ResponseEntity<>(
+                this.userService.findUserById(id), HttpStatus.OK
+        );
+    }
 
 
 
 
 
     //TODO: list all user
-    //TODO: find user by ID
     //TODO: update user by ID
     //TODO: delete user by ID
 

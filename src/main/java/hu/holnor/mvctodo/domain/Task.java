@@ -13,6 +13,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "task_id")
     private Long id;
+    private String name;
     private String description;
     private Integer complexity;
     @ManyToOne

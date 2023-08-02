@@ -23,7 +23,7 @@ public class User {
     private String role;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Task> task = new ArrayList<>();
+    private List<Task> tasks = new ArrayList<>();
 
     public User(RegisterUserCommand registerUserCommand) {
         this.firstName = registerUserCommand.getFirstName();
