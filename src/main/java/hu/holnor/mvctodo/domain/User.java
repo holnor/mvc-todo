@@ -1,6 +1,6 @@
 package hu.holnor.mvctodo.domain;
 
-import hu.holnor.mvctodo.controller.RegisterUserCommand;
+import hu.holnor.mvctodo.dto.incomming.RegisterUserCommand;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

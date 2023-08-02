@@ -1,7 +1,8 @@
 package hu.holnor.mvctodo.controller;
 
+import hu.holnor.mvctodo.dto.incomming.RegisterUserCommand;
 import hu.holnor.mvctodo.dto.outgoing.FindUserByIdData;
-import org.springframework.data.repository.query.Param;
+import hu.holnor.mvctodo.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

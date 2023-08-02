@@ -1,4 +1,4 @@
-package hu.holnor.mvctodo.controller;
+package hu.holnor.mvctodo.dto.incomming;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

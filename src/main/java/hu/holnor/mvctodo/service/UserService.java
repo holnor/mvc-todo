@@ -1,12 +1,15 @@
-package hu.holnor.mvctodo.controller;
+package hu.holnor.mvctodo.service;
 
 import hu.holnor.mvctodo.domain.User;
+import hu.holnor.mvctodo.dto.incomming.RegisterUserCommand;
 import hu.holnor.mvctodo.dto.outgoing.FindUserByIdData;
 import hu.holnor.mvctodo.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 @Service
+@Transactional
 public class UserService {
     private UserRepository userRepository;
 

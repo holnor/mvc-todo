@@ -1,5 +1,6 @@
 package hu.holnor.mvctodo.domain;
 
+import hu.holnor.mvctodo.dto.incomming.CreateNewTaskCommand;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,4 +20,10 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Task(CreateNewTaskCommand createNewTaskCommand) {
+        this.name = createNewTaskCommand.getName();
+        this.description = createNewTaskCommand.getDescription();
+        this.complexity = createNewTaskCommand.getComplexity();
+    }
 }
