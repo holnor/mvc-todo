@@ -1,5 +1,6 @@
 package hu.holnor.mvctodo.domain;
 
+import hu.holnor.mvctodo.controller.RegisterUserCommand;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,8 +20,15 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private String role;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> task = new ArrayList<>();
 
+    public User(RegisterUserCommand registerUserCommand) {
+        this.firstName = registerUserCommand.getFirstName();
+        this.lastName = registerUserCommand.getLastName();
+        this.email = registerUserCommand.getEmail();
+        this.role = "USER";
+    }
 }
