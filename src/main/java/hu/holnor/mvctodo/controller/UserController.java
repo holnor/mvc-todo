@@ -2,7 +2,7 @@ package hu.holnor.mvctodo.controller;
 
 import hu.holnor.mvctodo.dto.incomming.RegisterUserCommand;
 import hu.holnor.mvctodo.dto.outgoing.FindUserByIdDetails;
-import hu.holnor.mvctodo.dto.outgoing.UserListDetails;
+import hu.holnor.mvctodo.dto.outgoing.UserListItem;
 import hu.holnor.mvctodo.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<UserListDetails>findAllUsers(){
+    public ResponseEntity<List<UserListItem>>findAllUsers(){
         return new ResponseEntity<>(this.userService.findAllUsers(), HttpStatus.OK);
     }
 

@@ -8,14 +8,14 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class UserListDetails {
+public class UserListItem {
     private String firstName;
     private String lastName;
     private String email;
     private Integer numberOfTasks;
     private Integer totalComplexity;
 
-    public UserListDetails(User user) {
+    public UserListItem(User user) {
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.email = user.getEmail();

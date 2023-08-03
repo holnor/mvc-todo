@@ -3,13 +3,12 @@ package hu.holnor.mvctodo.service;
 import hu.holnor.mvctodo.domain.User;
 import hu.holnor.mvctodo.dto.incomming.RegisterUserCommand;
 import hu.holnor.mvctodo.dto.outgoing.FindUserByIdDetails;
-import hu.holnor.mvctodo.dto.outgoing.UserListDetails;
+import hu.holnor.mvctodo.dto.outgoing.UserListItem;
 import hu.holnor.mvctodo.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,7 +32,9 @@ public class UserService {
         );
     }
 
-    public UserListDetails findAllUsers() {
+    public List<UserListItem> findAllUsers() {
         //TODO: implement
+        return userRepository.findAll().stream()
+                .map(UserListItem::new).collect(Collectors.toList());
     }
 }
