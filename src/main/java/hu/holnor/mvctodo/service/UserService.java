@@ -33,7 +33,6 @@ public class UserService {
     }
 
     public List<UserListItem> findAllUsers() {
-        //TODO: implement
         return userRepository.findAll().stream()
                 .map(UserListItem::new).collect(Collectors.toList());
     }

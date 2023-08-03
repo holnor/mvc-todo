@@ -38,11 +38,4 @@ public class UserController {
                 this.userService.findUserById(id), HttpStatus.OK
         );
     }
-
-    //TODO: list all user
-
-
-    //TODO: update user by ID
-    //TODO: delete user by ID
-
 }
